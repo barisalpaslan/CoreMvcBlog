@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.Abstract
+namespace BusinessLayer.Abstract
 {
-    public interface ICommentDal : IGenericDal<Comment>
-    {
-    }
+	public interface IWriterService
+	{
+		void AddWriter(Writer writer);
+	}
 }
