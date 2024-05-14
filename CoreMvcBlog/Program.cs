@@ -13,6 +13,10 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+//durum kodlarýný kullanmak için
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error1", "?code={0}");
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
