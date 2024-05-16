@@ -13,77 +13,36 @@ namespace BusinessLayer.Concrete
 {
     public class CategoryManager : ICategoryService
     {
+        ICategoryDal _categoryDal;
 
-        // 1- CategoryRepository ctg = new CategoryRepository();
-
-        // 2- GenericRepository<Category> ctg = new GenericRepository<Category>();
-
-        // 3- EFCategoryRepository ctgrepo = new EFCategoryRepository();
-        //EFCategoryRepository efCategoryRepository;
-
-
-        // 3-  public CategoryManager()
-        // {
-        //     ctgrepo = new EFCategoryRepository();
-        // }
-
-        ICategoryDal categoryDal;
-
-        public CategoryManager(ICategoryDal _categoryDal)
+        public CategoryManager(ICategoryDal categoryDal)
         {
-            categoryDal = _categoryDal;
+            _categoryDal = categoryDal;
         }
 
-        public void AddCategory(Category category)
+        public void AddT(Category t)
         {
-            //if(category.CategoryName != "" && category.CategoryDescription != "" && category.CategoryName.Length >= 5
-            //    && category.CategoryStatus == true)
-            //{
-     //1-   //    ctg.AddCategory(category);
-            //}
-            //else
-            //{
-            //    //hata mesajı
-            //}
-
-     //3-   // ctgrepo.Insert(category);
-
-
-            categoryDal.Insert(category);
+            _categoryDal.Insert(t);
         }
 
-        public void DeleteCategory(Category category)
+        public void DeleteT(Category t)
         {
-            //if(category.ID != 0) 
-            //{
-     //2-   //    ctg.Delete(category);
-            //}
-
-
-     //3-   //  ctgrepo.Delete(category);
-
-            categoryDal.Delete(category);
+            _categoryDal.Delete(t);
         }
 
-        public Category GetById(int id)
+        public Category GetByIdT(int id)
         {
-     //3-  //  return ctgrepo.GetById(id);
-
-            return categoryDal.GetById(id);
+            return _categoryDal.GetById(id);
         }
 
-        public List<Category> GetList()
+        public List<Category> GetListT()
         {
-     //3-  //  return ctgrepo.GetListAll();
-
-            return categoryDal.GetListAll();
+            return _categoryDal.GetListAll();
         }
 
-        public void UpdateCategory(Category category)
+        public void UpdateT(Category t)
         {
-     //3-  //  ctgrepo.Update(category);
-
-            categoryDal.Update(category);
+            _categoryDal.Update(t);
         }
     }
 }

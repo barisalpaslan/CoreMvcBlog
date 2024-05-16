@@ -9,7 +9,7 @@ namespace CoreMvcBlog.Controllers
         CategoryManager cm = new CategoryManager(new EFCategoryRepository());
         public IActionResult Index()
         {
-            var values = cm.GetList();
+            var values = cm.GetListT();
             return View(values);
         }
     }
