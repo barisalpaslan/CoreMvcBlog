@@ -12,8 +12,12 @@ namespace CoreMvcBlog.Controllers
 	public class WriterController : Controller
 	{
 		WriterManager wm = new WriterManager(new EFWriterRepository());
+
+		[Authorize]
 		public IActionResult Index()
 		{
+			var usermail = User.Identity.Name;
+			ViewBag.v = usermail;
 			return View();
 		}
 		[AllowAnonymous]

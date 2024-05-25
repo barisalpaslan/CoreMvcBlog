@@ -9,7 +9,7 @@ namespace CoreMvcBlog.Controllers
 {
 	public class LoginController : Controller
 	{
-		[AllowAnonymous]
+		[HttpGet]
 		public IActionResult Index()
 		{
 			return View();
