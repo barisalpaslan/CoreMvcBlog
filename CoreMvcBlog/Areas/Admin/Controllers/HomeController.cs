@@ -1,6 +1,12 @@
-﻿namespace CoreMvcBlog.Areas.Admin.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace CoreMvcBlog.Areas.Admin.Controllers
 {
-    public class HomeController
+    public class HomeController : Controller
     {
+        public IActionResult Index()
+        {
+            return View();
+        }
     }
 }
