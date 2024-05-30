@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Admin/AdminLayout.cshtml";
+}
+
+<h1>Yazar İşlemleri (Ajax)</h1>
+
+<br>
+
+<button type="button" id="btngetlist" class="btn btn-primary">Yazar Listesi</button>
+
+<br>
+
+<div id="writerlist" >
+     Yazarlar Gelecek
+</div>
+
+@section scripts 
+{
+    <script>
+        $('#btngetlist').click(function () {
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/Admin/Writer/WriterList",
+                success: function (func) {
+                    let w = jQuery.parseJSON(func);
+                    console.log(w);
+
+                    let tablehtml = "<table class = table table-bordered><tr><th>Yazar ID</th>" +
+                        "<th>Yazar ID</th></tr>";
+
+
+                    $.each(w, (index, value) => {
+                        tablehtml += `<tr><td>${value.ID}</td><td>${value.Name}</td></tr>`
+                    });
+
+                    tablehtml += "</table>"
+
+                    $("#writerlist").html(tablehtml);
+                }
+            });
+        });
+    </script>
+}
+
+
